@@ -1,0 +1,36 @@
+[
+  {
+    "code": "ST-01-Teacher",
+    "name": "Teacher 1",
+    "subjectList": [
+      {
+        "name": "Maths",
+        "teacher": "ST-01-Teacher",
+        "grade": "ELEMENTARY_SCHOOL"
+      },
+      {
+        "name": "Science",
+        "teacher": "ST-01-Teacher",
+        "grade": "MIDDLE_SCHOOL"
+
+      }
+    ]
+  },
+  {
+    "code": "ST-02-Teacher",
+    "name": "Teacher 2",
+    "subjectList": [
+      {
+        "name": "English",
+        "teacher": "ST-02-Teacher",
+        "grade": "HIGH_SCHOOL"
+      },
+      {
+        "name": "Physics",
+        "teacher": "ST-02-Teacher",
+        "grade": "HIGH_SCHOOL"
+      }
+    ]
+  }
+
+]
