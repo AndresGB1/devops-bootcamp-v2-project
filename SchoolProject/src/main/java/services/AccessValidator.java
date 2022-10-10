@@ -2,24 +2,20 @@ package services;
 
 import models.Student;
 import models.Teacher;
-import repositories.StudentRepository;
-import repositories.TeacherRepository;
+import repositories.IBaseRepository;
 
 public class AccessValidator {
-    private StudentRepository studentRepository;
-    private TeacherRepository teacherRepository;
+    private IBaseRepository baseRepository;
 
-    public AccessValidator(StudentRepository studentRepository) {
-        this.studentRepository = studentRepository;
-        this.teacherRepository = new TeacherRepository();
+    public AccessValidator(IBaseRepository baseRepository) {
+        this.baseRepository = baseRepository;
     }
 
     public Student verifyStudentAccess(String code) {
-        System.out.println("size: " + this.studentRepository.getAllStudents().size());
-        return this.studentRepository.getStudentByCode(code);
+        return (Student) this.baseRepository.findByCode(code).orElse(null);
     }
 
     public Teacher verifyTeacherAccess(String code) {
-        return this.teacherRepository.getTeacherByCode(code);
+        return (Teacher) this.baseRepository.findByCode(code).orElse(null);
     }
 }
