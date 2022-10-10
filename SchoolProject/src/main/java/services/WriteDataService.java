@@ -1,18 +1,22 @@
 package services;
 
-import models.Student;
-import repositories.StudentRepository;
+import models.Teacher;
+import repositories.IBaseRepository;
 
 import java.util.List;
 
 public class WriteDataService {
-    private StudentRepository studentRepository;
 
-    public WriteDataService(StudentRepository studentRepository) {
-        this.studentRepository = studentRepository;
+
+
+    public WriteDataService() {
+
     }
 
-    public void writeStudentsDataToRepository(List<Student> students) {
-        students.forEach(student -> this.studentRepository.addStudent(student));
+    public <T>  void writeData(List<T> object, IBaseRepository<T, String> repository) {
+        for (Object student : object) {
+            repository.save((T) student);
+        }
     }
+
 }
